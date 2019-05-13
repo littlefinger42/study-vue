@@ -1,9 +1,35 @@
 <template>
   <v-app>
+    
     <v-navigation-drawer app>
-      <router-link to="/">Home</router-link>
-      <router-link to="/settings">Settings</router-link>
+
+      <v-toolbar>
+        <v-list>
+          <v-list-tile>
+            <v-list-tile-title class="title">
+              Application
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-tile v-for="route in this.$router.options.routes" :key="route.name">
+          <v-list-tile-action>
+            <v-icon>{{route.icon}}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title class="title">
+              <router-link :to="route.path">{{route.name}}</router-link>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      
     </v-navigation-drawer>
+
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>

@@ -11,12 +11,14 @@ export default new Router({
 		{
 			path: '/',
 			name: 'Home',
-			component: Home
+			component: Home,
+			icon: 'dashboard'
 		},
 		{
 			path: '/settings',
 			name: 'Settings',
-			component: Settings
+			component: Settings,
+			icon: 'settings'
 		}
 	]
 })
