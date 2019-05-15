@@ -19,7 +19,7 @@ const store = new Vuex.Store({
   actions: {
     enableBluetooth: ({ commit, state }, namePrefix) => {
       if (state.bluetooth.connected) {
-        warn.log(
+        console.log(
           "Bluetooth already connected to device: " + state.bluetooth.deviceName
         );
         return false;

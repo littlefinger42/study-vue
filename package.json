@@ -37,7 +37,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
@@ -52,7 +54,7 @@
     "last 2 versions"
   ],
   "gitHooks": {
-    "pre-commit": ""
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": [
