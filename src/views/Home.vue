@@ -15,7 +15,7 @@
                 v-if="!$store.state.bluetooth.connected"
               >Disconnected</span>
             </h1>
-            <p v-if="!$store.state.bluetooth.connected">You must be connected to a device to control it.</p>
+            <p v-if="!$store.state.bluetooth.connected">You must be connected to a BLE device to control it.</p>
             <p v-if="$store.state.bluetooth.connected">You are connected to the device: {{$store.state.bluetooth.deviceName}}</p>
           </v-card-text>
         </v-card>

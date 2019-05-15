@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
-    <v-text-field v-model="prefix" label="Bluetooth SSID Prefix" v-if="!$store.state.bluetooth.connected"></v-text-field>
+    <v-text-field v-model="prefix" label="Bluetooth SSID Prefix" v-if="connected"></v-text-field>
     <v-switch
-      v-model="$store.state.bluetooth.connected"
+      v-model="connected"
       v-on:click="toggleBluetooth"
       label="Enable bluetooth control"
     ></v-switch>
@@ -34,8 +34,5 @@ export default {
       return this.$store.state.bluetooth.connected
     }
   }
-  // props: {
-  //   msg: String
-  // }
 };
 </script>
