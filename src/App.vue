@@ -1,14 +1,10 @@
 <template>
   <v-app>
-    
     <v-navigation-drawer app>
-
       <v-toolbar>
         <v-list>
           <v-list-tile>
-            <v-list-tile-title class="title">
-              Application
-            </v-list-tile-title>
+            <v-list-tile-title class="title">Application</v-list-tile-title>
           </v-list-tile>
         </v-list>
       </v-toolbar>
@@ -27,22 +23,16 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-      
     </v-navigation-drawer>
 
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span>BLUETOOTH CONTROL SYSTEM</span>
+        <span class="font-weight-light"> THE ORCHESTRA</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+      <v-alert v-if="$store.state.bluetooth.connected" :value="true" color="success" icon="check_circle" outline>Connected</v-alert>
+      <v-alert v-if="!$store.state.bluetooth.connected" :value="true" color="error" icon="error" outline>Disconnected</v-alert>
     </v-toolbar>
 
     <v-content>
@@ -55,14 +45,14 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   components: {
     // HelloWorld
   },
-  data () {
+  data() {
     return {
       //
-    }
+    };
   }
-}
+};
 </script>

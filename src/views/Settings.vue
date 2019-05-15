@@ -1,33 +1,38 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
+    <v-text-field v-model="prefix" label="Bluetooth SSID Prefix" v-if="!$store.state.bluetooth.connected"></v-text-field>
     <v-switch
-      v-model="switch1"
-      v-on:click="requestBluetooth"
-      :label="`Enable bluetooth control: ${switch1.toString()}`"
+      v-model="$store.state.bluetooth.connected"
+      v-on:click="toggleBluetooth"
+      label="Enable bluetooth control"
     ></v-switch>
+    {{connected}}
   </div>
 </template>
 
 <script>
 export default {
   name: "Settings",
-  data: function() {
+  prop: ["prefix"],
+  data () {
     return {
       msg: "Settings",
-      switch1: false
+      prefix: this.prefix
     };
   },
   methods: {
-    requestBluetooth: () => {
-      navigator.bluetooth
-        .requestDevice({ filters: [{ namePrefix: ["NAMEPREFIX"] }], optionalServices: [0xFFE0] })
-        // .then(device => {
-        //   /* ... */
-        // })
-        // .catch(error => {
-        //   console.log(error);
-        // });
+    toggleBluetooth () {
+      if (!this.connected) {
+        this.$store.dispatch("enableBluetooth", this.prefix);
+      } else {
+        this.$store.dispatch("disableBluetooth");
+      }
+    },
+  },
+  computed: {
+    connected () {
+      return this.$store.state.bluetooth.connected
     }
   }
   // props: {
