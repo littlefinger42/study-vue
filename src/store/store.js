@@ -12,7 +12,7 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    setBluetoothDeviceName: (state, payload) => (state.deviceName = payload),
+    setBluetoothDeviceName: (state, payload) => (state.bluetooth.deviceName = payload),
     setBluetoothConnected: state => (state.bluetooth.connected = true),
     setBluetoothDisconnected: state => (state.bluetooth.connected = false)
   },

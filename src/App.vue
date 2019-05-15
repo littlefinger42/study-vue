@@ -28,11 +28,23 @@
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>BLUETOOTH CONTROL SYSTEM</span>
-        <span class="font-weight-light"> THE ORCHESTRA</span>
+        <span class="font-weight-light">THE ORCHESTRA</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-alert v-if="$store.state.bluetooth.connected" :value="true" color="success" icon="check_circle" outline>Connected</v-alert>
-      <v-alert v-if="!$store.state.bluetooth.connected" :value="true" color="error" icon="error" outline>Disconnected</v-alert>
+      <v-alert
+        v-if="$store.state.bluetooth.connected"
+        :value="true"
+        color="success"
+        icon="check_circle"
+        outline
+      >{{$store.state.bluetooth.deviceName}}</v-alert>
+      <v-alert
+        v-if="!$store.state.bluetooth.connected"
+        :value="true"
+        color="error"
+        icon="error"
+        outline
+      >Disconnected</v-alert>
     </v-toolbar>
 
     <v-content>

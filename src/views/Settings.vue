@@ -7,7 +7,6 @@
       v-on:click="toggleBluetooth"
       label="Enable bluetooth control"
     ></v-switch>
-    {{connected}}
   </div>
 </template>
 
